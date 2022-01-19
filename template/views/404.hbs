@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        h1{
+            color: blueviolet;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: 800;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    {{>nav}}
+    <h1>
+        404 Page error
+        the page u are looking for is not found 
+    </h1>
+</body>
+<script>
+    var myHeaders = new Headers();
+myHeaders.append("Accept", "application/json");
+myHeaders.append("Cookie", "__cf_bm=3o4L4.5v0UoO7l_wQksJDgBHFo2xW6deyUW.Mm2W6Y4-1642290800-0-AQsxNgNENVoZ9SEfdCys2Yth0kcXmkqqnJM4QoheLhBKdcqOAMjHDSyH33fc/p7OUJniVtnOuRcc9aYgSH+wM2k=");
+
+var requestOptions = {
+  method: 'GET',
+  headers: myHeaders,
+  redirect: 'follow'
+};
+
+fetch("https://api.wazirx.com/api/v2/tickers", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
+</script>
+</html>

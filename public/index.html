@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+
+img{
+    z-index: 1;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+.main {
+    z-index: 10;
+  width: 100%;
+  height: 100vh;
+  background-image: url("Public/wall1.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  /* background-position: bottom; */
+  background-position: fixed;
+  
+
+
+  /*Optional*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-container {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 25px 0 rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(4px);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+.card-container .image-container img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 8px;
+}
+.card-container .card-header h1 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 0px;
+}
+.card-container .card-header p {
+  font-size: 15px;
+  font-weight: 400;
+  text-align: justify;
+}
+.card-container .card-btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 8px;
+}
+.card-container .card-btn a {
+  width: auto;
+  height: auto;
+  padding: 8px;
+  text-decoration: none;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: black;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.card-btn{
+    width: auto;
+  height: auto;
+  padding: 8px;
+  text-decoration: none;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: black;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* Design By: Halil Demirci */
+
+    </style>
+    <title>Document</title>
+</head>
+<body>
+
+    
+    <section class="main">
+      
+      <div class="card-container">
+        <div class="image-container">
+          <img src="Public/sence.jpg" alt="Landscape Image">
+        </div>
+        <div class="card-header">
+        <span>   😂😃😃🤣😆😆😉😂😉🤣😉😜🤣😜😂😜😂😃</span>
+          <h1 class="jokeHere" >Koi Sence Hai is baat ki</h1>
+        </div>
+        <div class="card-btn">
+          
+          <button class="card-btn" onclick="getJoke()" >Next Joke 😛😛</button>
+        </div>
+      </div>
+      
+    </section>
+</body>
+<script>
+  
+  const jokeHereFin = document.querySelector(".jokeHere")
+  // console.log(jokeHereFin.value)
+  
+      const getJoke = ()=>{
+   
+          const setHeader = {
+              headers: {
+                  Accept : "application/json"
+              }
+          }
+          console.log("this is working")
+      fetch("https://api.wazirx.com/api/v2/tickers",setHeader)
+    //   fetch("/api/v2/tickers",{
+    //     method : "GET",
+    //     headers : {
+    //       "Content-Type" : "application/json"
+    //     }
+    //   })
+  
+      .then((res)=>{ 
+        res.json()
+        
+      })
+  
+      .then((data)=>{
+        console.log(data)
+        //  jokeHereFin.innerHTML = data.btcinr.base_unit;
+       
+      }).catch((error) =>{
+          console.log(error);
+      })
+  }
+  getJoke();
+</script>
+</html>
